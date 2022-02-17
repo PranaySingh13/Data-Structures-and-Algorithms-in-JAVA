@@ -20,7 +20,7 @@ package recursion;
  * recursive call depending upon the nature of the problem.
  * 
  * 
- * It is important to note here that recursion uses stack to store the recursive
+ * It is important to note here that recursion uses in-built stack to store the recursive
  * calls. So, to avoid memory overflow problem, we should define a recursive
  * solution with minimum possible number of recursive calls such that the base
  * condition is achieved before the recursion stack starts overflowing on
