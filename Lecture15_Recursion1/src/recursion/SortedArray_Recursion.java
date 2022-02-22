@@ -21,6 +21,7 @@ public class SortedArray_Recursion {
 		return smallAnswer;
 	}
 
+	
 	public static void main(String[] args) {
 		int[] input = { 2, 3, 6, 10, 11 };
 		System.out.println(checkSorted(input));
