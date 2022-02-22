@@ -2,27 +2,33 @@ package recursion;
 
 import java.util.Scanner;
 
+/*Sample Input 1 :
+3
+9 8 10
+8
+Sample Output 1 :
+true*/
 class Solution3 {
 
 	public static boolean checkNumber(int input[], int x) {
 
-		//base case 1
+		// base case 1
 		if (input.length <= 1) {
 			return false;
 		}
-		
-		//base case 2
-		if(input[input.length-1]==x) {
+
+		// base case 2
+		if (input[input.length - 1] == x) {
 			return true;
 		}
 
-		//small Calculation
+		// small Calculation
 		int smallInput[] = new int[input.length - 1];
 		for (int i = 0; i < smallInput.length; i++) {
 			smallInput[i] = input[i];
 		}
 
-		//Recursive Call
+		// Recursive Call
 		boolean result = checkNumber(smallInput, x);
 		return result;
 	}
