@@ -2,6 +2,10 @@ package recursion;
 
 import java.util.Scanner;
 
+/*Sample Input 1 :
+ 156
+Sample Output 1 :
+3*/
 public class Number_Of_Digits {
 
 	@SuppressWarnings("resource")
