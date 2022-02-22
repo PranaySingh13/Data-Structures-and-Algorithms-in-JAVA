@@ -6,7 +6,7 @@ public class Check_Sorted_Array_Recursion {
 	 * Traditional Recursive Method for Arrays i.e; of creating mulitple small
 	 * arrays which takes loads of memory.
 	 */
-	public static boolean checkSorted(int input[]) {
+	public static boolean checkSorted1(int input[]) {
 
 		if (input.length <= 1) {
 			return true;
@@ -21,7 +21,7 @@ public class Check_Sorted_Array_Recursion {
 			smallInput[i - 1] = input[i];
 		}
 
-		boolean smallAnswer = checkSorted(smallInput);
+		boolean smallAnswer = checkSorted1(smallInput);
 		return smallAnswer;
 	}
 
@@ -29,8 +29,13 @@ public class Check_Sorted_Array_Recursion {
 	 * Smartest Recursive Method for Arrays i.e; not creating multiple arrays we are
 	 * only changing the window for startIndex.
 	 */
-	public static boolean checkSortedBetter(int input[], int startIndex) {
+	public static boolean checkSorted2(int input[]) {
 
+		// Helper Functions
+		return checkSortedBetter(input, 0);
+	}
+
+	private static boolean checkSortedBetter(int input[], int startIndex) {
 		// base case 1
 		if (startIndex >= input.length - 1) {
 			return true;
@@ -48,8 +53,10 @@ public class Check_Sorted_Array_Recursion {
 
 	public static void main(String[] args) {
 		int[] input = { 2, 3, 6, 10, 11 };
-		System.out.println(checkSorted(input));
-		System.out.println(checkSortedBetter(input, 0));
+
+		System.out.println(checkSorted1(input));
+
+		System.out.println(checkSorted2(input));
 	}
 
 }
