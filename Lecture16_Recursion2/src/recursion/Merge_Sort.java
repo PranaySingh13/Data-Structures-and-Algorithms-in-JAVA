@@ -51,7 +51,10 @@ class Solution3 {
 				newSortedInput[k++] = leftInput[i++];
 
 				/*
-				 * Detailed meaning of above arr3[k] = arr1[i]; k++; i++;
+				 * Detailed meaning of above 
+				 * arr3[k] = arr1[i]; 
+				 * k++; 
+				 * i++;
 				 */
 			} else {
 				newSortedInput[k++] = rightInput[j++];
