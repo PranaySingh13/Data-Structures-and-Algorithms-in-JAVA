@@ -28,8 +28,10 @@ class Solution5 {
 		// recursion Call
 		String[] smallString = returnSubsequences(s.substring(1));
 
-		// creating new array for storing subsequence of twice length of smallString as
-		// smallString subsequences are also part of main String.
+		/*
+		 * creating new array for storing subsequence of twice length of smallString as
+		 * smallString subsequences are also part of main String subsequence.
+		 */
 		String[] answer = new String[2 * smallString.length];
 
 		// Copying subsequences of smallString into main String
@@ -39,8 +41,10 @@ class Solution5 {
 			k++;
 		}
 
-		// appending main String character with the subsequences of smallString gives
-		// all subsequnces
+		/*
+		 * appending main String starting character with the subsequences of smallString
+		 * gives remaining subsequnces of main String
+		 */
 		for (int i = 0; i < smallString.length; i++) {
 			answer[k] = s.charAt(0) + smallString[i];
 			k++;
@@ -50,7 +54,7 @@ class Solution5 {
 	}
 }
 
-public class Return_Subsequences {
+public class Return_Subsequences_Of_String {
 
 	@SuppressWarnings("resource")
 	public static void main(String[] args) {
