@@ -44,7 +44,7 @@ public class BinarySearch {
 		// Repeat until the pointers start and end meet each other
 		while (startIndex <= endIndex) {
 
-			int midIndex = (startIndex + endIndex) / 2;// Middle Index
+			int midIndex = startIndex + (endIndex - startIndex) / 2;// Middle Index
 
 			if (x == arr[midIndex]) {// element found
 				return midIndex;
