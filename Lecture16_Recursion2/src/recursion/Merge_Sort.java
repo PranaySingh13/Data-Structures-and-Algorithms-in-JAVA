@@ -21,7 +21,7 @@ class Solution3 {
 
 		int startIndex = 0;
 		int endIndex = input.length - 1;
-		int midIndex = (startIndex + endIndex) / 2;
+		int midIndex = startIndex + (endIndex - startIndex) / 2;
 
 		int[] leftInput = Arrays.copyOfRange(input, startIndex, midIndex + 1);
 		mergeSort(leftInput);//Recursion Call 1
