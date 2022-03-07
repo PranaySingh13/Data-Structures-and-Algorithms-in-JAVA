@@ -38,8 +38,11 @@ public class Insertion_Sort_Time_Space_Complexity {
  *
  * Here we are calculating no. of unit operations.
  * 
- * As there are two nested loops traversing the whole array length so the time
- * complexity is O(N^2).
+ * Worst and Average Case Time Complexity:- As there are two nested loops
+ * traversing the whole array length so the time complexity is O(N^2).
+ * 
+ * Best Case Time Complexity: O(n). Best case occurs when array is already
+ * sorted.
  * 
  * Space Complexity
  * 
