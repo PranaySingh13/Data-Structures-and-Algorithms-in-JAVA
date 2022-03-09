@@ -1,7 +1,12 @@
-package oops.interfaces;
+package oops.interfaces.staticMethod;
 
 /*Since Java 8, we can have method body in interface. 
  *But we need to make it static method.*/
+
+/*Why do we need static methods in interface?
+ * 
+ * Java interface static method helps us in providing security 
+ *by not allowing implementation classes to override them.*/
 interface Drawable1 {
 	void draw();
 
