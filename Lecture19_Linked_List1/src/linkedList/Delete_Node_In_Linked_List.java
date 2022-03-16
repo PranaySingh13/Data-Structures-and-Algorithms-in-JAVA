@@ -5,9 +5,12 @@ public class Delete_Node_In_Linked_List {
 	// Case 1 Delete Node at Starting
 	public static Node<Integer> deleteAtStart(Node<Integer> head) {
 
+		if (head == null)
+			return null;
+
 		Node<Integer> temp = head;
-		temp = temp.next;
-		return temp;
+		temp = temp.next;// moving the head pointer to next node
+		return temp;// disposing the first head node as we are returing next node
 	}
 
 	// Case 2 Delete Node at Ending
@@ -41,10 +44,8 @@ public class Delete_Node_In_Linked_List {
 			i++;
 		}
 
-		if (temp.next.next == null) {
-			temp = temp.next.next;// where temp.next should not be null otherwise it will arise
-			// NullPointerException
-		}
+		temp.next = temp.next.next;// where temp.next should not be null otherwise it will arise
+		// NullPointerException
 
 		return head;
 	}
@@ -74,8 +75,18 @@ public class Delete_Node_In_Linked_List {
 		Node<Integer> resultNodeHead2 = deleteAtEnding(head1);
 		printList(resultNodeHead2);// 1 2 3
 
-		Node<Integer> resultNodeHead3 = delete(head1, 2);
-		printList(resultNodeHead3);// 1 2 3
+		Node<Integer> head2 = new Node<>(1);
+		Node<Integer> second2 = new Node<>(2);
+		Node<Integer> third2 = new Node<>(3);
+		Node<Integer> fourth2 = new Node<>(4);
+		Node<Integer> fifth2 = new Node<>(5);
+		head2.next = second2;
+		second2.next = third2;
+		third2.next = fourth2;
+		fourth2.next = fifth2;
+
+		Node<Integer> resultNodeHead3 = delete(head2, 2);
+		printList(resultNodeHead3);// 1 2 4 5
 	}
 
 }
