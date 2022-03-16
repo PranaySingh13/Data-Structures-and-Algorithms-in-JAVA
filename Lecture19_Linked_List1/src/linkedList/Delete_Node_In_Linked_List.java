@@ -1,16 +1,21 @@
 package linkedList;
 
+import java.util.Scanner;
+
 public class Delete_Node_In_Linked_List {
 
 	// Case 1 Delete Node at Starting
 	public static Node<Integer> deleteAtStart(Node<Integer> head) {
 
+		// If List is Empty
 		if (head == null)
-			return null;
+			return head;
 
 		Node<Integer> temp = head;
-		temp = temp.next;// moving the head pointer to next node
-		return temp;// disposing the first head node as we are returing next node
+		head = head.next;// moving the head pointer to next node
+		temp.next = null;// disposing the first head node from linked list
+
+		return head;// as it will hold first node of linked list
 	}
 
 	// Case 2 Delete Node at Ending
@@ -31,21 +36,48 @@ public class Delete_Node_In_Linked_List {
 		return head;
 	}
 
+	public static int length(Node<Integer> head) {
+
+		int count = 0;
+		while (head.next != null) {
+			count++;
+			head = head.next;
+		}
+		return count;
+	}
+
 	// Case 3 Delete Intermidiate Node in List
-	public static Node<Integer> delete(Node<Integer> head, int position) {
-		// If the first node is null or there is only one node, then they return null.
-		if (head == null || head.next == null)
-			return null;
+	public static Node<Integer> deleteNode(Node<Integer> head, int position) {
+		// If linked list is empty
+		if (head == null)
+			return head;
+
+		// If head needs to be removed
+		if (position == 0) {
+			return deleteAtStart(head);
+		}
+
+		// If position is more than number of nodes
+
+		int length = length(head); // This step for storing length in variable reduces time complexity.
+		if (position > length)
+			return head;
 
 		int i = 0;
 		Node<Integer> temp = head;
-		while (i < position - 1) {
+		// Find previous node of the node to be deleted
+		while (i < position - 1 && temp != null) {
 			temp = temp.next;
 			i++;
 		}
 
-		temp.next = temp.next.next;// where temp.next should not be null otherwise it will arise
+		/*
+		 * In Linked List make the new links before you break the previous node link
+		 * because if you break first you will not be able to point to next node.
+		 */
+		Node<Integer> newNode = temp.next.next;// where temp.next should not be null otherwise it will arise
 		// NullPointerException
+		temp.next = newNode;
 
 		return head;
 	}
@@ -60,33 +92,47 @@ public class Delete_Node_In_Linked_List {
 		System.out.println();
 	}
 
+	/* Time Complexity is O(n) */
+	@SuppressWarnings("resource")
+	public static Node<Integer> takeInput() {
+
+		Node<Integer> head = null, tail = null;
+		Scanner sc = new Scanner(System.in);
+		int data = sc.nextInt();
+
+		while (data != -1) {
+			// Creating New Node with the given data
+			Node<Integer> newNode = new Node<>(data);
+
+			// If the linked list is empty, then make the new Node as head and tail
+			if (head == null) {
+				head = newNode;
+				tail = newNode;
+			}
+
+			// travel till the last(tail) node and insert the new node there
+			else {
+				tail.next = newNode;// Inserting new node at last(tail) node
+				tail = newNode;// Now the new node will be the new tail
+			}
+			data = sc.nextInt();// Taking new data
+		}
+
+		return head;// returning the linked list from head
+	}
+
 	public static void main(String[] args) {
-		Node<Integer> head1 = new Node<>(1);
-		Node<Integer> second = new Node<>(2);
-		Node<Integer> third = new Node<>(3);
-		Node<Integer> fourth = new Node<>(4);
-		head1.next = second;
-		second.next = third;
-		third.next = fourth;
-
+		Node<Integer> head1 = takeInput();
 		Node<Integer> resultNodeHead1 = deleteAtStart(head1);
-		printList(resultNodeHead1);// 2 3 4
+		printList(resultNodeHead1);
 
-		Node<Integer> resultNodeHead2 = deleteAtEnding(head1);
-		printList(resultNodeHead2);// 1 2 3
+		Node<Integer> head2 = takeInput();
+		Node<Integer> resultNodeHead2 = deleteAtEnding(head2);
+		printList(resultNodeHead2);
 
-		Node<Integer> head2 = new Node<>(1);
-		Node<Integer> second2 = new Node<>(2);
-		Node<Integer> third2 = new Node<>(3);
-		Node<Integer> fourth2 = new Node<>(4);
-		Node<Integer> fifth2 = new Node<>(5);
-		head2.next = second2;
-		second2.next = third2;
-		third2.next = fourth2;
-		fourth2.next = fifth2;
-
-		Node<Integer> resultNodeHead3 = delete(head2, 2);
-		printList(resultNodeHead3);// 1 2 4 5
+		Node<Integer> head3 = takeInput();
+		Node<Integer> resultNodeHead3 = deleteNode(head3, 2);
+		printList(resultNodeHead3);
 	}
 
 }
