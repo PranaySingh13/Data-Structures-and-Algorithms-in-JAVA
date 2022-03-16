@@ -41,7 +41,7 @@ public class Insert_Node_In_Linked_List {
 
 		// Insert at beginning
 		if (position == 0) {
-			insertAtStart(head, data);
+			return insertAtStart(head, data);
 		}
 
 		int i = 0;
@@ -90,7 +90,7 @@ public class Insert_Node_In_Linked_List {
 		second.next = third;
 		third.next = fourth;
 
-		Node<Integer> resultNodeHead3 = insertAtPosition(head2, 2, 9);
+		Node<Integer> resultNodeHead3 = insertAtPosition(head2, 0, 9);
 		printList(resultNodeHead3);// 1 2 9 3 4
 
 	}
