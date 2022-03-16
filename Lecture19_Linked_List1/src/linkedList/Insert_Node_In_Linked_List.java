@@ -15,9 +15,9 @@ public class Insert_Node_In_Linked_List {
 
 		Node<Integer> newNode = new Node<>(data);
 
-		// If list is empty
+		// If linked list is empty
 		if (head == null) {
-			head = newNode;
+			head = newNode;//update newNode as head
 			return head;
 		}
 		Node<Integer> temp = head;
