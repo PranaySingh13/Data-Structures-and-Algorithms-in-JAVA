@@ -8,6 +8,12 @@ class Solution {
 	public static int length(Node<Integer> head) {
 
 		int count = 0;
+
+		/*
+		 * We create Temp node in the method because we do not want to modify the start
+		 * node pointer(head) since we always need the start pointer(head) of a linked list, so
+		 * instead of modifying the start pointer we create a temporary pointer.
+		 */
 		Node<Integer> temp = head;// Start from the head of the list
 
 		while (temp != null) {// Till we reach the last node
